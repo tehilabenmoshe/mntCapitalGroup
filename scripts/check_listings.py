@@ -1,13 +1,19 @@
-"""Hourly check for new for-sale listings via the RentCast API, emailed as alerts.
+"""Daily check for new for-sale listings via the RentCast API, emailed as alerts.
 
 Compares the current set of matching listings against the IDs saved from the
 previous run (state/previous_ids.json) and only alerts on listings that are new.
+
+A hard monthly request cap (state/usage.json) guarantees the script can never
+exceed the free RentCast quota, so no overage charges are ever possible: before
+every API request it checks the counter, and if the cap is reached it stops
+instead of calling the API.
 """
 
 import json
 import os
 import smtplib
 import sys
+from datetime import datetime, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -23,16 +29,65 @@ CITY = os.environ.get("SEARCH_CITY", "Carmel")
 STATE = os.environ.get("SEARCH_STATE", "IN")
 MAX_PRICE = int(os.environ.get("MAX_PRICE", "300000"))
 
-STATE_FILE = Path(__file__).resolve().parent.parent / "state" / "previous_ids.json"
+# Hard ceiling on RentCast API requests per calendar month. Kept safely below
+# the free tier's 50 so that even a double-run or an extra pagination page can
+# never push us over the free quota into paid overage territory.
+MONTHLY_REQUEST_CAP = int(os.environ.get("MONTHLY_REQUEST_CAP") or "45")
+
+STATE_DIR = Path(__file__).resolve().parent.parent / "state"
+STATE_FILE = STATE_DIR / "previous_ids.json"
+USAGE_FILE = STATE_DIR / "usage.json"
 
 RENTCAST_URL = "https://api.rentcast.io/v1/listings/sale"
 
 
-def fetch_active_listings():
+def current_month():
+    return datetime.now(timezone.utc).strftime("%Y-%m")
+
+
+def load_usage():
+    """Return the request count used so far in the current calendar month."""
+    if USAGE_FILE.exists():
+        data = json.loads(USAGE_FILE.read_text(encoding="utf-8"))
+        if data.get("month") == current_month():
+            return data.get("count", 0)
+    return 0  # new month (or first run) -> counter resets to 0
+
+
+def save_usage(count):
+    USAGE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    USAGE_FILE.write_text(
+        json.dumps({"month": current_month(), "count": count}, indent=2),
+        encoding="utf-8",
+    )
+
+
+class QuotaExceeded(Exception):
+    """Raised when making another request would exceed the monthly cap."""
+
+
+def fetch_active_listings(usage_count):
+    """Fetch active listings, enforcing the monthly request cap.
+
+    Returns (listings, new_usage_count). Raises QuotaExceeded if the very first
+    request would already breach the cap, so we never call the API in that case.
+    """
     listings = []
     offset = 0
     limit = 500
     while True:
+        if usage_count >= MONTHLY_REQUEST_CAP:
+            if not listings:
+                raise QuotaExceeded(
+                    f"Monthly cap of {MONTHLY_REQUEST_CAP} requests reached "
+                    f"for {current_month()} — no API request made."
+                )
+            # Cap hit mid-pagination: stop with the partial data we have.
+            print(
+                f"Reached monthly cap of {MONTHLY_REQUEST_CAP} during pagination; "
+                f"returning {len(listings)} listings fetched so far."
+            )
+            break
         response = requests.get(
             RENTCAST_URL,
             headers={"X-Api-Key": RENTCAST_API_KEY, "Accept": "application/json"},
@@ -45,13 +100,14 @@ def fetch_active_listings():
             },
             timeout=30,
         )
+        usage_count += 1  # count every request that actually leaves the machine
         response.raise_for_status()
         page = response.json()
         listings.extend(page)
         if len(page) < limit:
             break
         offset += limit
-    return listings
+    return listings, usage_count
 
 
 def load_previous_ids():
@@ -128,7 +184,20 @@ def send_email(subject, text_body, html_body):
 
 
 def main():
-    all_listings = fetch_active_listings()
+    usage_count = load_usage()
+    print(f"RentCast requests used this month ({current_month()}): {usage_count}/{MONTHLY_REQUEST_CAP}.")
+
+    try:
+        all_listings, usage_count = fetch_active_listings(usage_count)
+    except QuotaExceeded as exc:
+        # Save the (unchanged) counter and exit cleanly — no failure, no charge.
+        save_usage(usage_count)
+        print(f"SKIPPED: {exc}")
+        return
+
+    # Persist the updated counter immediately, before any further work.
+    save_usage(usage_count)
+
     matching = [l for l in all_listings if l.get("price") and l["price"] <= MAX_PRICE]
     current_ids = {l["id"] for l in matching}
 
