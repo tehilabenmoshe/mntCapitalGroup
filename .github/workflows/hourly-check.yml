@@ -1,0 +1,43 @@
+name: Hourly Zillow-area listing check
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check-listings:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run listing check
+        env:
+          RENTCAST_API_KEY: ${{ secrets.RENTCAST_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          SEARCH_CITY: ${{ vars.SEARCH_CITY }}
+          SEARCH_STATE: ${{ vars.SEARCH_STATE }}
+          MAX_PRICE: ${{ vars.MAX_PRICE }}
+        run: python scripts/check_listings.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "listing-alert-bot"
+          git config user.email "actions@github.com"
+          git add state/previous_ids.json
+          git diff --staged --quiet || git commit -m "Update seen listing state [skip ci]"
+          git push
