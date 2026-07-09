@@ -42,5 +42,11 @@ jobs:
           git config user.name "listing-alert-bot"
           git config user.email "actions@github.com"
           git add state/previous_ids.json state/usage.json
-          git diff --staged --quiet || git commit -m "Update seen listing + usage state [skip ci]"
+          if git diff --staged --quiet; then
+            echo "No state changes to commit."
+            exit 0
+          fi
+          git commit -m "Update seen listing + usage state [skip ci]"
+          # Self-heal if the remote moved on while this job ran, then push.
+          git pull --rebase origin main
           git push
