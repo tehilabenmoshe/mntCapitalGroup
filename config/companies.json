@@ -1,0 +1,27 @@
+{
+  "_comment": "רשימת חברות הייטק ישראליות שמהן הסוכן מושך משרות ישירות מלוח ה-ATS הרשמי (JSON ציבורי, חוקי לחלוטין). כדי להוסיף חברה: מצאי את הטוקן שלה (למשל https://boards.greenhouse.io/COMPANY -> הטוקן הוא COMPANY) והוסיפי אותו לרשימה המתאימה. כל הטוקנים כאן אומתו כעובדים באוגוסט 2026.",
+  "greenhouse": [
+    "riskified",
+    "lightricks",
+    "similarweb",
+    "taboola",
+    "melio",
+    "jfrog",
+    "catonetworks",
+    "orcasecurity",
+    "transmitsecurity",
+    "forter",
+    "yotpo",
+    "fireblocks",
+    "payoneer",
+    "appsflyer",
+    "lightrun",
+    "descope",
+    "via",
+    "vast",
+    "pagaya",
+    "cybereason",
+    "saltsecurity"
+  ],
+  "lever": []
+}

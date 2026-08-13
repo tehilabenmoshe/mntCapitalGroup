@@ -1,0 +1,55 @@
+name: Daily job finder
+
+on:
+  schedule:
+    # Once a day at 06:00 UTC (~09:00 Israel time) — a fresh digest each morning.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  find-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run job finder
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          JOBS_EMAIL_TO: ${{ secrets.JOBS_EMAIL_TO }}
+          # Optional: set this secret to enable Claude-written cover letters.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INCLUDE_ISRAEL: ${{ vars.INCLUDE_ISRAEL }}
+          INCLUDE_REMOTE: ${{ vars.INCLUDE_REMOTE }}
+          MIN_SCORE: ${{ vars.MIN_SCORE }}
+          MAX_EMAIL_JOBS: ${{ vars.MAX_EMAIL_JOBS }}
+          COVER_LETTER_MODEL: ${{ vars.COVER_LETTER_MODEL }}
+          COVER_LETTER_MAX: ${{ vars.COVER_LETTER_MAX }}
+        run: python scripts/check_jobs.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "job-finder-bot"
+          git config user.email "actions@github.com"
+          git add state/previous_job_ids.json
+          if git diff --staged --quiet; then
+            echo "No state changes to commit."
+            exit 0
+          fi
+          git commit -m "Update seen jobs state [skip ci]"
+          # Self-heal if the remote moved on while this job ran, then push.
+          git pull --rebase origin main
+          git push
