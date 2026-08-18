@@ -62,10 +62,23 @@
   .hist li{margin-bottom:4px}
   .drop{color:var(--good);font-weight:600}
   .rise{color:var(--bad);font-weight:600}
-  .links{display:flex;gap:14px;font-size:13px}
+  .links{display:flex;gap:14px;font-size:13px;flex-wrap:wrap}
   .links a{color:var(--accent);text-decoration:none}
   .links a:hover{text-decoration:underline}
   .empty{text-align:center;color:var(--muted);padding:60px 20px;font-size:15px}
+  .analysis{border-top:1px solid var(--border);padding-top:8px;margin-top:2px}
+  .an-row{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin-bottom:4px}
+  .an-row .m{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:4px 8px}
+  .an-row .m b{font-weight:600}
+  .an-verdict{font-size:12px;font-weight:600}
+  .assump{background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:0 14px;margin:0 0 18px}
+  .assump summary{cursor:pointer;font-size:13px;font-weight:600;padding:12px 0;color:var(--accent)}
+  .assump .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:10px;padding:4px 0 14px}
+  .assump label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+  .assump input{background:var(--bg);color:var(--text);border:1px solid var(--border);
+    border-radius:8px;padding:6px 8px;font-size:13px;font-family:inherit;width:100%}
 </style>
 </head>
 <body>
@@ -93,6 +106,22 @@
     </div>
   </div>
 
+  <details class="assump" id="assump">
+    <summary>הנחות לניתוח האוטומטי (לחץ לעריכה)</summary>
+    <div class="agrid">
+      <label>שכ"ד ל-sqft ($/חו')<input type="number" step="0.05" id="a-rentsqft" value="1.55"/></label>
+      <label>ARV ל-sqft ($)<input type="number" step="5" id="a-arvsqft" value="225"/></label>
+      <label>HOA לחודש ($)<input type="number" step="10" id="a-hoa" value="220"/></label>
+      <label>ארנונה (%/שנה)<input type="number" step="0.1" id="a-tax" value="1.1"/></label>
+      <label>שיפוץ ($)<input type="number" step="1000" id="a-reno" value="20000"/></label>
+      <label>ריק (%)<input type="number" step="1" id="a-vac" value="6"/></label>
+      <label>מקדמה (%)<input type="number" step="5" id="a-down" value="25"/></label>
+      <label>ריבית (%)<input type="number" step="0.25" id="a-int" value="7"/></label>
+      <label>עלות מכירה (%)<input type="number" step="0.5" id="a-sell" value="7"/></label>
+      <label>חודשי החזקה (פליפ)<input type="number" step="1" id="a-hold" value="6"/></label>
+    </div>
+  </details>
+
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" style="display:none">אין הצעות להצגה עדיין. הסוכן ימלא את האתר בריצה הבאה.</div>
 </div>
@@ -114,6 +143,47 @@ function lastPriceChange(entry){
     if(pc) return pc;
   }
   return null;
+}
+
+function readAssump(){
+  const g=id=>parseFloat(document.getElementById(id).value)||0;
+  return {rentsqft:g("a-rentsqft"),arvsqft:g("a-arvsqft"),hoa:g("a-hoa"),
+    tax:g("a-tax"),reno:g("a-reno"),vac:g("a-vac"),down:g("a-down"),
+    int:g("a-int"),sell:g("a-sell"),hold:g("a-hold")};
+}
+
+function analysisHTML(e){
+  const sqft=e.squareFootage, price=e.price;
+  if(!sqft || !price) return "";
+  const a=readAssump();
+  const rent=Math.round(sqft*a.rentsqft);
+  const grossRent=rent*12;
+  const opex=a.hoa*12 + price*a.tax/100 + 600 + 1200;
+  const noi=grossRent*(1-a.vac/100)-opex;
+  const cap=noi/price*100;
+  const loan=price*(1-a.down/100), r=a.int/100/12, n=360;
+  const mPay=r>0?loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):loan/n;
+  const monthlyCF=(noi-mPay*12)/12;
+  const arv=sqft*a.arvsqft;
+  const holding=a.hold*(a.hoa+price*a.tax/100/12+50);
+  const flip=arv*(1-a.sell/100)-price-a.reno-holding;
+
+  const capCls=cap>=6?"drop":"rise", cfCls=monthlyCF>=0?"drop":"rise", flipCls=flip>=15000?"drop":"rise";
+  let verdict, vCls;
+  if(flip>=15000 && cap>=6){verdict="שני התרחישים עובדים";vCls="drop";}
+  else if(cap>=6){verdict="השכרה סבירה, פליפ לא";vCls="";}
+  else if(flip>=15000){verdict="פליפ משתלם, השכרה חלשה";vCls="";}
+  else{verdict="במחיר זה — לא משתלם";vCls="rise";}
+
+  return `<div class="analysis">
+    <div class="an-row">
+      <span class="m">שכ"ד משוער <b>${fmtPrice(rent)}</b></span>
+      <span class="m">Cap <b class="${capCls}">${cap.toFixed(1)}%</b></span>
+      <span class="m">תזרים <b class="${cfCls}">${fmtPrice(monthlyCF)}</b></span>
+      <span class="m">פליפ <b class="${flipCls}">${fmtPrice(flip)}</b></span>
+    </div>
+    <div class="an-verdict ${vCls}">${verdict}</div>
+  </div>`;
 }
 
 function cardHTML(e){
@@ -155,15 +225,18 @@ function cardHTML(e){
     : "";
 
   const query=encodeURIComponent(e.address||"");
+  const zillowSlug=(e.address||"").replace(/,/g,"").trim().replace(/\s+/g,"-");
   return `<div class="card ${e.active?"":"inactive"}">
     <div class="badges">${badges.join("")}</div>
-    <a class="addr" href="https://www.google.com/search?q=${query}" target="_blank" rel="noopener">${e.address||"כתובת לא ידועה"}</a>
+    <a class="addr" href="https://www.zillow.com/homes/${zillowSlug}_rb/" target="_blank" rel="noopener">${e.address||"כתובת לא ידועה"}</a>
     <div class="price">${priceHtml}</div>
     <div class="specs">${specs.join("")}</div>
     <div class="meta">פורסם: ${fmtDate(e.listedDate)} · במעקב מאז: ${fmtDate(e.first_seen)}${e.mlsNumber?` · MLS# ${e.mlsNumber}`:""}</div>
+    ${analysisHTML(e)}
     <div class="links">
+      <a href="https://www.zillow.com/homes/${zillowSlug}_rb/" target="_blank" rel="noopener">Zillow</a>
       <a href="https://www.google.com/maps/search/${query}" target="_blank" rel="noopener">מפה</a>
-      <a href="https://www.redfin.com/city/35315/IN/Carmel/filter/max-price=300k" target="_blank" rel="noopener">Redfin</a>
+      <a href="https://www.google.com/search?q=${query}" target="_blank" rel="noopener">חיפוש</a>
     </div>
     ${histHtml}
   </div>`;
@@ -215,6 +288,7 @@ document.getElementById("filters").addEventListener("click",e=>{
   document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("on"));
   b.classList.add("on"); state.filter=b.dataset.f; render();
 });
+document.getElementById("assump").addEventListener("input",render);
 
 fetch("listings.json?_="+Date.now())
   .then(r=>r.json()).then(d=>{state.data=d;render();})
