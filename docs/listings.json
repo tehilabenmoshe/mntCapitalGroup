@@ -1,9 +1,355 @@
 {
-  "generated_at": null,
+  "generated_at": "2026-08-18T09:06:34Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
-  "count": 0,
-  "active_count": 0,
-  "listings": []
+  "count": 15,
+  "active_count": 15,
+  "listings": [
+    {
+      "id": "12515-Timber-Creek-Dr,-Unit-2,-Carmel,-IN-46032",
+      "address": "12515 Timber Creek Dr, Unit 2, Carmel, IN 46032",
+      "price": 249900,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1070,
+      "propertyType": "Condo",
+      "listedDate": "2026-08-12T00:00:00.000Z",
+      "mlsNumber": "22119474",
+      "latitude": 39.969026,
+      "longitude": -86.139336,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "12519-Timber-Creek-Dr,-Unit-2,-Carmel,-IN-46032",
+      "address": "12519 Timber Creek Dr, Unit 2, Carmel, IN 46032",
+      "price": 217500,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1070,
+      "propertyType": "Condo",
+      "listedDate": "2026-04-02T00:00:00.000Z",
+      "mlsNumber": "22092334",
+      "latitude": 39.969456,
+      "longitude": -86.139555,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "1423-Shadow-Ridge-Rd,-Carmel,-IN-46280",
+      "address": "1423 Shadow Ridge Rd, Carmel, IN 46280",
+      "price": 285000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1446,
+      "propertyType": "Condo",
+      "listedDate": "2026-04-16T00:00:00.000Z",
+      "mlsNumber": "22095792",
+      "latitude": 39.930141,
+      "longitude": -86.131569,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "12926-University-Cres,-Apt-2C,-Carmel,-IN-46032",
+      "address": "12926 University Cres, Apt 2C, Carmel, IN 46032",
+      "price": 190000,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "squareFootage": 693,
+      "propertyType": "Condo",
+      "listedDate": "2026-05-20T00:00:00.000Z",
+      "mlsNumber": "22101775",
+      "latitude": 39.97447,
+      "longitude": -86.198043,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "354-Hunters-Ln,-Apt-C,-Carmel,-IN-46032",
+      "address": "354 Hunters Ln, Apt C, Carmel, IN 46032",
+      "price": 275000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1664,
+      "propertyType": "Condo",
+      "listedDate": "2026-05-22T00:00:00.000Z",
+      "mlsNumber": "22101826",
+      "latitude": 39.962978,
+      "longitude": -86.120364,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "530-Hunters-Dr,-Apt-D,-Carmel,-IN-46032",
+      "address": "530 Hunters Dr, Apt D, Carmel, IN 46032",
+      "price": 299000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1626,
+      "propertyType": "Condo",
+      "listedDate": "2026-06-04T00:00:00.000Z",
+      "mlsNumber": "22105801",
+      "latitude": 39.963455,
+      "longitude": -86.120195,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "1423-Sierra-Spg,-Unit-A,-Carmel,-IN-46280",
+      "address": "1423 Sierra Spg, Unit A, Carmel, IN 46280",
+      "price": 269900,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1446,
+      "propertyType": "Condo",
+      "listedDate": "2026-06-15T00:00:00.000Z",
+      "mlsNumber": "22108175",
+      "latitude": 39.929695,
+      "longitude": -86.131657,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "3057-Sugar-Maple-Ct,-Carmel,-IN-46033",
+      "address": "3057 Sugar Maple Ct, Carmel, IN 46033",
+      "price": 299900,
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "squareFootage": 1673,
+      "propertyType": "Condo",
+      "listedDate": "2026-06-26T00:00:00.000Z",
+      "mlsNumber": "22098637",
+      "latitude": 39.957058,
+      "longitude": -86.11159,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "12519-Timber-Creek-Dr,-Unit-11,-Carmel,-IN-46032",
+      "address": "12519 Timber Creek Dr, Unit 11, Carmel, IN 46032",
+      "price": 260000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1070,
+      "propertyType": "Condo",
+      "listedDate": "2026-07-14T00:00:00.000Z",
+      "mlsNumber": "22113687",
+      "latitude": 39.969263,
+      "longitude": -86.13954,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "12863-Tradd-St,-Apt-1C,-Carmel,-IN-46032",
+      "address": "12863 Tradd St, Apt 1C, Carmel, IN 46032",
+      "price": 259000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1205,
+      "propertyType": "Condo",
+      "listedDate": "2026-07-16T00:00:00.000Z",
+      "mlsNumber": "22114379",
+      "latitude": 39.974119,
+      "longitude": -86.199568,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "586-Hunters-Dr,-Apt-D,-Carmel,-IN-46032",
+      "address": "586 Hunters Dr, Apt D, Carmel, IN 46032",
+      "price": 193000,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "squareFootage": 1156,
+      "propertyType": "Condo",
+      "listedDate": "2026-07-17T00:00:00.000Z",
+      "mlsNumber": "22111639",
+      "latitude": 39.962387,
+      "longitude": -86.120226,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "962-Lenox-Ln,-Unit-101,-Carmel,-IN-46032",
+      "address": "962 Lenox Ln, Unit 101, Carmel, IN 46032",
+      "price": 220000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1072,
+      "propertyType": "Condo",
+      "listedDate": "2026-07-22T00:00:00.000Z",
+      "mlsNumber": "22113383",
+      "latitude": 39.96092,
+      "longitude": -86.141755,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "12873-Tradd-St,-Apt-3A,-Carmel,-IN-46032",
+      "address": "12873 Tradd St, Apt 3A, Carmel, IN 46032",
+      "price": 240000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1211,
+      "propertyType": "Condo",
+      "listedDate": "2026-08-02T00:00:00.000Z",
+      "mlsNumber": "22117744",
+      "latitude": 39.974334,
+      "longitude": -86.19919,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "11725-Lenox-Ln,-Unit-103,-Carmel,-IN-46032",
+      "address": "11725 Lenox Ln, Unit 103, Carmel, IN 46032",
+      "price": 249900,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1072,
+      "propertyType": "Condo",
+      "listedDate": "2026-08-07T00:00:00.000Z",
+      "mlsNumber": "22118690",
+      "latitude": 39.962447,
+      "longitude": -86.143022,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "11635-Lenox-Ln,-Unit-101,-Carmel,-IN-46032",
+      "address": "11635 Lenox Ln, Unit 101, Carmel, IN 46032",
+      "price": 217000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1072,
+      "propertyType": "Condo",
+      "listedDate": "2026-08-12T00:00:00.000Z",
+      "mlsNumber": "22019792",
+      "latitude": 39.960993,
+      "longitude": -86.14306,
+      "first_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T09:06:34Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-18T09:06:34Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    }
+  ]
 }
