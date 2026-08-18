@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-18T09:06:34Z",
+  "generated_at": "2026-08-18T13:47:04Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
   "count": 15,
-  "active_count": 15,
+  "active_count": 14,
   "listings": [
     {
       "id": "12515-Timber-Creek-Dr,-Unit-2,-Carmel,-IN-46032",
@@ -19,7 +19,7 @@
       "latitude": 39.969026,
       "longitude": -86.139336,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -42,7 +42,7 @@
       "latitude": 39.969456,
       "longitude": -86.139555,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -65,7 +65,7 @@
       "latitude": 39.930141,
       "longitude": -86.131569,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -88,7 +88,7 @@
       "latitude": 39.97447,
       "longitude": -86.198043,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -111,7 +111,7 @@
       "latitude": 39.962978,
       "longitude": -86.120364,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -134,7 +134,7 @@
       "latitude": 39.963455,
       "longitude": -86.120195,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -157,7 +157,7 @@
       "latitude": 39.929695,
       "longitude": -86.131657,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -180,7 +180,7 @@
       "latitude": 39.957058,
       "longitude": -86.11159,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -203,7 +203,7 @@
       "latitude": 39.969263,
       "longitude": -86.13954,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -226,7 +226,7 @@
       "latitude": 39.974119,
       "longitude": -86.199568,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -249,7 +249,7 @@
       "latitude": 39.962387,
       "longitude": -86.120226,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -262,7 +262,7 @@
     {
       "id": "962-Lenox-Ln,-Unit-101,-Carmel,-IN-46032",
       "address": "962 Lenox Ln, Unit 101, Carmel, IN 46032",
-      "price": 220000,
+      "price": 209000,
       "bedrooms": 2,
       "bathrooms": 2,
       "squareFootage": 1072,
@@ -272,13 +272,24 @@
       "latitude": 39.96092,
       "longitude": -86.141755,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
           "date": "2026-08-18T09:06:34Z",
           "event": "listed",
           "changes": []
+        },
+        {
+          "date": "2026-08-18T13:47:04Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 220000,
+              "to": 209000
+            }
+          ]
         }
       ]
     },
@@ -295,7 +306,7 @@
       "latitude": 39.974334,
       "longitude": -86.19919,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -318,7 +329,7 @@
       "latitude": 39.962447,
       "longitude": -86.143022,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-18T09:06:34Z",
+      "last_seen": "2026-08-18T13:47:04Z",
       "active": true,
       "history": [
         {
@@ -342,11 +353,16 @@
       "longitude": -86.14306,
       "first_seen": "2026-08-18T09:06:34Z",
       "last_seen": "2026-08-18T09:06:34Z",
-      "active": true,
+      "active": false,
       "history": [
         {
           "date": "2026-08-18T09:06:34Z",
           "event": "listed",
+          "changes": []
+        },
+        {
+          "date": "2026-08-18T13:47:04Z",
+          "event": "removed",
           "changes": []
         }
       ]
