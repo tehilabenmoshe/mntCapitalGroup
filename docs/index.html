@@ -43,6 +43,8 @@
   .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
     padding:16px;display:flex;flex-direction:column;gap:10px}
   .card.inactive{opacity:.62}
+  .card img.photo{display:block;width:calc(100% + 32px);height:180px;object-fit:cover;
+    margin:-16px -16px 6px;border-radius:14px 14px 0 0;background:var(--bg)}
   .badges{display:flex;gap:6px;flex-wrap:wrap;min-height:22px}
   .badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px}
   .b-new{background:var(--chip);color:var(--chip-text)}
@@ -126,6 +128,7 @@
   <div class="empty" id="empty" style="display:none">אין הצעות להצגה עדיין. הסוכן ימלא את האתר בריצה הבאה.</div>
 </div>
 
+<script src="config.js"></script>
 <script>
 const state = {data:null, filter:"active", sort:"new", q:""};
 const fmtPrice = n => n==null ? "—" : "$"+Math.round(n).toLocaleString("en-US");
@@ -226,7 +229,12 @@ function cardHTML(e){
 
   const query=encodeURIComponent(e.address||"");
   const zillowSlug=(e.address||"").replace(/,/g,"").trim().replace(/\s+/g,"-");
+  const svKey=(window.SITE_CONFIG&&window.SITE_CONFIG.streetViewKey)||"";
+  const photo=(svKey && e.latitude && e.longitude)
+    ? `<img class="photo" loading="lazy" alt="תצוגת רחוב" onerror="this.style.display='none'" src="https://maps.googleapis.com/maps/api/streetview?size=600x360&location=${e.latitude},${e.longitude}&fov=80&key=${svKey}"/>`
+    : "";
   return `<div class="card ${e.active?"":"inactive"}">
+    ${photo}
     <div class="badges">${badges.join("")}</div>
     <a class="addr" href="https://www.zillow.com/homes/${zillowSlug}_rb/" target="_blank" rel="noopener">${e.address||"כתובת לא ידועה"}</a>
     <div class="price">${priceHtml}</div>
