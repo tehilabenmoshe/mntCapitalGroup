@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "listing-alert-bot"
           git config user.email "actions@github.com"
-          git add state/previous_ids.json state/usage.json
+          git add state/previous_ids.json state/usage.json docs/listings.json
           if git diff --staged --quiet; then
             echo "No state changes to commit."
             exit 0

@@ -38,11 +38,23 @@ STATE_DIR = Path(__file__).resolve().parent.parent / "state"
 STATE_FILE = STATE_DIR / "previous_ids.json"
 USAGE_FILE = STATE_DIR / "usage.json"
 
+DOCS_DIR = Path(__file__).resolve().parent.parent / "docs"
+SITE_DATA_FILE = DOCS_DIR / "listings.json"
+
+# Fields we watch for changes between runs. A change in any of these appends a
+# history entry to the listing on the site, so duplicates that differ in price
+# or another criterion are shown with their full detail.
+TRACKED_FIELDS = ["price", "bedrooms", "bathrooms", "squareFootage", "status"]
+
 RENTCAST_URL = "https://api.rentcast.io/v1/listings/sale"
 
 
 def current_month():
     return datetime.now(timezone.utc).strftime("%Y-%m")
+
+
+def now_iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def load_usage():
@@ -119,6 +131,111 @@ def load_previous_ids():
 def save_current_ids(ids):
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(sorted(ids), indent=2), encoding="utf-8")
+
+
+def listing_snapshot(listing):
+    """Extract the fields we store on the site for a single listing."""
+    return {
+        "id": listing["id"],
+        "address": listing.get("formattedAddress", str(listing["id"]).replace("-", " ")),
+        "price": listing.get("price"),
+        "bedrooms": listing.get("bedrooms"),
+        "bathrooms": listing.get("bathrooms"),
+        "squareFootage": listing.get("squareFootage"),
+        "propertyType": listing.get("propertyType"),
+        "listedDate": listing.get("listedDate"),
+        "mlsNumber": listing.get("mlsNumber"),
+        "latitude": listing.get("latitude"),
+        "longitude": listing.get("longitude"),
+    }
+
+
+def load_site_data():
+    """Return existing site listings keyed by id (empty dict on first run)."""
+    if SITE_DATA_FILE.exists():
+        try:
+            data = json.loads(SITE_DATA_FILE.read_text(encoding="utf-8"))
+            return {entry["id"]: entry for entry in data.get("listings", [])}
+        except (json.JSONDecodeError, KeyError):
+            return {}
+    return {}
+
+
+def update_site_data(matching):
+    """Merge the current matching listings into the accumulated site dataset.
+
+    Keeps every listing ever seen. For a returning listing, any change in a
+    tracked field is appended to its history so the site can show the detail of
+    how the same offer differs over time (e.g. a price drop). Listings that are
+    no longer active are kept and flagged as removed.
+    """
+    existing = load_site_data()
+    stamp = now_iso()
+    current_ids = set()
+
+    for listing in matching:
+        lid = listing["id"]
+        current_ids.add(lid)
+        snap = listing_snapshot(listing)
+
+        if lid not in existing:
+            entry = dict(snap)
+            entry["first_seen"] = stamp
+            entry["last_seen"] = stamp
+            entry["active"] = True
+            entry["history"] = [{"date": stamp, "event": "listed", "changes": []}]
+            existing[lid] = entry
+            continue
+
+        entry = existing[lid]
+        changes = []
+        for field in TRACKED_FIELDS:
+            old, new = entry.get(field), snap.get(field)
+            if new is not None and old != new:
+                changes.append({"field": field, "from": old, "to": new})
+        for key, value in snap.items():
+            if value is not None:
+                entry[key] = value
+        entry["last_seen"] = stamp
+        was_inactive = not entry.get("active", True)
+        entry["active"] = True
+        if was_inactive:
+            entry.setdefault("history", []).append(
+                {"date": stamp, "event": "relisted", "changes": changes}
+            )
+        elif changes:
+            entry.setdefault("history", []).append(
+                {"date": stamp, "event": "updated", "changes": changes}
+            )
+
+    # Anything not in this run's active set is kept but flagged as removed once.
+    for lid, entry in existing.items():
+        if lid not in current_ids and entry.get("active", True):
+            entry["active"] = False
+            entry.setdefault("history", []).append(
+                {"date": stamp, "event": "removed", "changes": []}
+            )
+
+    listings_out = sorted(
+        existing.values(), key=lambda e: e.get("first_seen", ""), reverse=True
+    )
+    payload = {
+        "generated_at": stamp,
+        "city": CITY,
+        "state": STATE,
+        "max_price": MAX_PRICE,
+        "count": len(listings_out),
+        "active_count": sum(1 for e in listings_out if e.get("active")),
+        "listings": listings_out,
+    }
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    SITE_DATA_FILE.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(
+        f"Site data updated: {payload['count']} total listings "
+        f"({payload['active_count']} active)."
+    )
 
 
 def build_email_body(new_listings):
@@ -214,6 +331,10 @@ def main():
         print("Email sent.")
     else:
         print("No new listings, no email sent.")
+
+    # Update the website dataset every run so price changes on existing
+    # listings are captured even when there is no brand-new listing to email.
+    update_site_data(matching)
 
     save_current_ids(current_ids)
 

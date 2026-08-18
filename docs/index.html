@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>בתים למכירה — Carmel, IN</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --text:#1a1a1a; --muted:#6b7280;
+    --border:#e5e7eb; --accent:#2563eb; --good:#15803d; --good-bg:#dcfce7;
+    --bad:#b91c1c; --bad-bg:#fee2e2; --warn:#b45309; --warn-bg:#fef3c7;
+    --chip:#eef2ff; --chip-text:#3730a3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1115; --card:#181b21; --text:#e8eaed; --muted:#9aa0a6;
+      --border:#2a2e37; --accent:#5b9dff; --good:#4ade80; --good-bg:#0f3d24;
+      --bad:#f87171; --bad-bg:#3d1616; --warn:#fbbf24; --warn-bg:#3d2f0a;
+      --chip:#1e2536; --chip-text:#a5b4fc;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.6}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 16px 60px}
+  header h1{font-size:24px;margin:0 0 4px;font-weight:600}
+  header p{margin:0;color:var(--muted);font-size:14px}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:10px 16px;min-width:110px}
+  .stat .n{font-size:22px;font-weight:600}
+  .stat .l{font-size:12px;color:var(--muted)}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 22px}
+  input[type=search],select{background:var(--card);color:var(--text);
+    border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:14px;font-family:inherit}
+  input[type=search]{flex:1;min-width:180px}
+  .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .fbtn{background:var(--card);border:1px solid var(--border);color:var(--text);
+    border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+  .fbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:16px;display:flex;flex-direction:column;gap:10px}
+  .card.inactive{opacity:.62}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;min-height:22px}
+  .badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px}
+  .b-new{background:var(--chip);color:var(--chip-text)}
+  .b-drop{background:var(--good-bg);color:var(--good)}
+  .b-rise{background:var(--bad-bg);color:var(--bad)}
+  .b-removed{background:var(--warn-bg);color:var(--warn)}
+  .addr{font-size:15px;font-weight:600;text-decoration:none;color:var(--text)}
+  .addr:hover{color:var(--accent);text-decoration:underline}
+  .price{font-size:24px;font-weight:700}
+  .price s{font-size:15px;font-weight:400;color:var(--muted);margin-inline-start:8px}
+  .specs{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  .specs b{color:var(--text);font-weight:600}
+  .meta{font-size:12px;color:var(--muted)}
+  .hist{border-top:1px solid var(--border);padding-top:8px;margin-top:2px}
+  .hist summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:600}
+  .hist ul{margin:8px 0 0;padding-inline-start:18px;font-size:13px}
+  .hist li{margin-bottom:4px}
+  .drop{color:var(--good);font-weight:600}
+  .rise{color:var(--bad);font-weight:600}
+  .links{display:flex;gap:14px;font-size:13px}
+  .links a{color:var(--accent);text-decoration:none}
+  .links a:hover{text-decoration:underline}
+  .empty{text-align:center;color:var(--muted);padding:60px 20px;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>בתים למכירה — <span id="h-city">Carmel, IN</span></h1>
+    <p id="h-sub">טוען…</p>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="חיפוש לפי כתובת…"/>
+    <select id="sort">
+      <option value="new">חדשים ביותר</option>
+      <option value="price_asc">מחיר — מהזול ליקר</option>
+      <option value="price_desc">מחיר — מהיקר לזול</option>
+      <option value="beds">מספר חדרים</option>
+    </select>
+    <div class="filters" id="filters">
+      <button class="fbtn on" data-f="active">פעילים</button>
+      <button class="fbtn" data-f="drops">ירידות מחיר</button>
+      <button class="fbtn" data-f="new">חדשים (3 ימים)</button>
+      <button class="fbtn" data-f="all">הכל</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">אין הצעות להצגה עדיין. הסוכן ימלא את האתר בריצה הבאה.</div>
+</div>
+
+<script>
+const state = {data:null, filter:"active", sort:"new", q:""};
+const fmtPrice = n => n==null ? "—" : "$"+Math.round(n).toLocaleString("en-US");
+const daysAgo = iso => iso ? (Date.now()-new Date(iso))/86400000 : 1e9;
+const fmtDate = iso => { if(!iso) return "—"; const d=new Date(iso);
+  return d.toLocaleDateString("he-IL",{year:"numeric",month:"short",day:"numeric"}); };
+
+const FIELD_LABELS = {price:"מחיר",bedrooms:"חדרי שינה",bathrooms:"אמבטיות",
+  squareFootage:'רגל רבועה',status:"סטטוס"};
+
+function lastPriceChange(entry){
+  const hist = entry.history||[];
+  for(let i=hist.length-1;i>=0;i--){
+    const pc = (hist[i].changes||[]).find(c=>c.field==="price");
+    if(pc) return pc;
+  }
+  return null;
+}
+
+function cardHTML(e){
+  const badges=[];
+  if(daysAgo(e.first_seen)<=3) badges.push('<span class="badge b-new">חדש</span>');
+  const pc=lastPriceChange(e);
+  if(pc && pc.to<pc.from) badges.push('<span class="badge b-drop">ירידת מחיר</span>');
+  if(pc && pc.to>pc.from) badges.push('<span class="badge b-rise">עליית מחיר</span>');
+  if(!e.active) badges.push('<span class="badge b-removed">הוסר</span>');
+
+  const priceHtml = (pc && pc.from!==e.price)
+    ? `${fmtPrice(e.price)} <s>${fmtPrice(pc.from)}</s>`
+    : fmtPrice(e.price);
+
+  const specs=[];
+  if(e.bedrooms!=null) specs.push(`<span><b>${e.bedrooms}</b> חד'</span>`);
+  if(e.bathrooms!=null) specs.push(`<span><b>${e.bathrooms}</b> אמב'</span>`);
+  if(e.squareFootage!=null) specs.push(`<span><b>${e.squareFootage.toLocaleString("en-US")}</b> sqft</span>`);
+  if(e.propertyType) specs.push(`<span>${e.propertyType}</span>`);
+
+  const changeItems=(e.history||[]).slice().reverse().map(h=>{
+    if(h.event==="listed") return `<li>${fmtDate(h.date)} — נכנס למעקב</li>`;
+    if(h.event==="removed") return `<li>${fmtDate(h.date)} — הוסר מהרשימה הפעילה</li>`;
+    if(h.event==="relisted") return `<li>${fmtDate(h.date)} — חזר לרשימה</li>`;
+    const parts=(h.changes||[]).map(c=>{
+      const label=FIELD_LABELS[c.field]||c.field;
+      if(c.field==="price"){
+        const cls=c.to<c.from?"drop":"rise";
+        return `${label}: <s>${fmtPrice(c.from)}</s> <span class="${cls}">${fmtPrice(c.to)}</span>`;
+      }
+      return `${label}: <s>${c.from}</s> → ${c.to}`;
+    });
+    return `<li>${fmtDate(h.date)} — ${parts.join(" · ")}</li>`;
+  }).join("");
+
+  const hasChanges=(e.history||[]).some(h=>(h.changes||[]).length>0 || h.event!=="listed");
+  const histHtml = hasChanges
+    ? `<details class="hist"><summary>היסטוריית שינויים (${(e.history||[]).length})</summary><ul>${changeItems}</ul></details>`
+    : "";
+
+  const query=encodeURIComponent(e.address||"");
+  return `<div class="card ${e.active?"":"inactive"}">
+    <div class="badges">${badges.join("")}</div>
+    <a class="addr" href="https://www.google.com/search?q=${query}" target="_blank" rel="noopener">${e.address||"כתובת לא ידועה"}</a>
+    <div class="price">${priceHtml}</div>
+    <div class="specs">${specs.join("")}</div>
+    <div class="meta">פורסם: ${fmtDate(e.listedDate)} · במעקב מאז: ${fmtDate(e.first_seen)}${e.mlsNumber?` · MLS# ${e.mlsNumber}`:""}</div>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/${query}" target="_blank" rel="noopener">מפה</a>
+      <a href="https://www.redfin.com/city/35315/IN/Carmel/filter/max-price=300k" target="_blank" rel="noopener">Redfin</a>
+    </div>
+    ${histHtml}
+  </div>`;
+}
+
+function passesFilter(e){
+  if(state.q && !(e.address||"").toLowerCase().includes(state.q.toLowerCase())) return false;
+  if(state.filter==="active") return e.active;
+  if(state.filter==="all") return true;
+  if(state.filter==="new") return daysAgo(e.first_seen)<=3;
+  if(state.filter==="drops"){ const pc=lastPriceChange(e); return pc && pc.to<pc.from; }
+  return true;
+}
+
+function sortList(list){
+  const s=state.sort;
+  return list.sort((a,b)=>{
+    if(s==="price_asc") return (a.price||1e12)-(b.price||1e12);
+    if(s==="price_desc") return (b.price||0)-(a.price||0);
+    if(s==="beds") return (b.bedrooms||0)-(a.bedrooms||0);
+    return (b.first_seen||"").localeCompare(a.first_seen||"");
+  });
+}
+
+function render(){
+  const d=state.data; if(!d) return;
+  document.getElementById("h-city").textContent=`${d.city}, ${d.state}`;
+  const upd = d.generated_at ? `עודכן ${new Date(d.generated_at).toLocaleString("he-IL")}` : "טרם עודכן";
+  document.getElementById("h-sub").textContent=`מתחת ל-${fmtPrice(d.max_price)} · ${upd}`;
+
+  const all=d.listings||[];
+  const drops=all.filter(e=>{const pc=lastPriceChange(e);return pc&&pc.to<pc.from;}).length;
+  const fresh=all.filter(e=>daysAgo(e.first_seen)<=3).length;
+  document.getElementById("stats").innerHTML=[
+    ["סה\"כ הצעות",all.length],["פעילות",d.active_count!=null?d.active_count:all.filter(e=>e.active).length],
+    ["ירידות מחיר",drops],["חדשות (3 ימים)",fresh]
+  ].map(([l,n])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+
+  const list=sortList(all.filter(passesFilter));
+  const grid=document.getElementById("grid"), empty=document.getElementById("empty");
+  grid.innerHTML=list.map(cardHTML).join("");
+  empty.style.display=list.length?"none":"block";
+}
+
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value;render();});
+document.getElementById("sort").addEventListener("change",e=>{state.sort=e.target.value;render();});
+document.getElementById("filters").addEventListener("click",e=>{
+  const b=e.target.closest(".fbtn"); if(!b) return;
+  document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); state.filter=b.dataset.f; render();
+});
+
+fetch("listings.json?_="+Date.now())
+  .then(r=>r.json()).then(d=>{state.data=d;render();})
+  .catch(()=>{document.getElementById("h-sub").textContent="שגיאה בטעינת הנתונים";});
+</script>
+</body>
+</html>
