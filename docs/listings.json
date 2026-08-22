@@ -1,11 +1,34 @@
 {
-  "generated_at": "2026-08-21T13:50:04Z",
+  "generated_at": "2026-08-22T13:35:13Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
-  "count": 15,
-  "active_count": 13,
+  "count": 16,
+  "active_count": 14,
   "listings": [
+    {
+      "id": "1076-Timber-Creek-Dr,-Unit-2,-Carmel,-IN-46032",
+      "address": "1076 Timber Creek Dr, Unit 2, Carmel, IN 46032",
+      "price": 219000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "squareFootage": 1072,
+      "propertyType": "Condo",
+      "listedDate": "2026-08-21T00:00:00.000Z",
+      "mlsNumber": "22120835",
+      "latitude": 39.970534,
+      "longitude": -86.138026,
+      "first_seen": "2026-08-22T13:35:13Z",
+      "last_seen": "2026-08-22T13:35:13Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-08-22T13:35:13Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
     {
       "id": "12515-Timber-Creek-Dr,-Unit-2,-Carmel,-IN-46032",
       "address": "12515 Timber Creek Dr, Unit 2, Carmel, IN 46032",
@@ -19,7 +42,7 @@
       "latitude": 39.969026,
       "longitude": -86.139336,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -42,7 +65,7 @@
       "latitude": 39.969456,
       "longitude": -86.139555,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -65,7 +88,7 @@
       "latitude": 39.930141,
       "longitude": -86.131569,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -78,7 +101,7 @@
     {
       "id": "12926-University-Cres,-Apt-2C,-Carmel,-IN-46032",
       "address": "12926 University Cres, Apt 2C, Carmel, IN 46032",
-      "price": 190000,
+      "price": 187000,
       "bedrooms": 1,
       "bathrooms": 1,
       "squareFootage": 693,
@@ -88,13 +111,24 @@
       "latitude": 39.97447,
       "longitude": -86.198043,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
           "date": "2026-08-18T09:06:34Z",
           "event": "listed",
           "changes": []
+        },
+        {
+          "date": "2026-08-22T13:35:13Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 190000,
+              "to": 187000
+            }
+          ]
         }
       ]
     },
@@ -111,7 +145,7 @@
       "latitude": 39.962978,
       "longitude": -86.120364,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -134,7 +168,7 @@
       "latitude": 39.963455,
       "longitude": -86.120195,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -185,7 +219,7 @@
       "latitude": 39.957058,
       "longitude": -86.11159,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -208,7 +242,7 @@
       "latitude": 39.969263,
       "longitude": -86.13954,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -231,7 +265,7 @@
       "latitude": 39.974119,
       "longitude": -86.199568,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -254,7 +288,7 @@
       "latitude": 39.962387,
       "longitude": -86.120226,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -277,7 +311,7 @@
       "latitude": 39.96092,
       "longitude": -86.141755,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -311,7 +345,7 @@
       "latitude": 39.974334,
       "longitude": -86.19919,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
@@ -334,7 +368,7 @@
       "latitude": 39.962447,
       "longitude": -86.143022,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-08-21T13:50:04Z",
+      "last_seen": "2026-08-22T13:35:13Z",
       "active": true,
       "history": [
         {
