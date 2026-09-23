@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T17:34:40Z",
+  "generated_at": "2026-09-23T17:46:36Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
@@ -10,7 +10,7 @@
       "id": "541-W-Hunters-Dr,-Apt-C,-Carmel,-IN-46032",
       "address": "541 W Hunters Dr, Apt C, Carmel, IN 46032",
       "price": 195000,
-      "bedrooms": 1,
+      "bedrooms": 2,
       "bathrooms": 1,
       "squareFootage": 1156,
       "propertyType": "Condo",
@@ -19,13 +19,24 @@
       "latitude": 39.963259,
       "longitude": -86.120582,
       "first_seen": "2026-09-18T16:59:27Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
           "date": "2026-09-18T16:59:27Z",
           "event": "listed",
           "changes": []
+        },
+        {
+          "date": "2026-09-23T17:46:36Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "bedrooms",
+              "from": 1,
+              "to": 2
+            }
+          ]
         }
       ]
     },
@@ -42,7 +53,7 @@
       "latitude": 39.929562,
       "longitude": -86.134483,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -65,7 +76,7 @@
       "latitude": 39.976594,
       "longitude": -86.140213,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -88,7 +99,7 @@
       "latitude": 39.963457,
       "longitude": -86.119243,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -122,7 +133,7 @@
       "latitude": 39.975995,
       "longitude": -86.140672,
       "first_seen": "2026-09-05T15:52:21Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -145,7 +156,7 @@
       "latitude": 39.960868,
       "longitude": -86.142349,
       "first_seen": "2026-09-03T16:58:48Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -168,7 +179,7 @@
       "latitude": 39.974995,
       "longitude": -86.198092,
       "first_seen": "2026-09-01T17:15:06Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -230,7 +241,7 @@
       "latitude": 39.941196,
       "longitude": -86.142054,
       "first_seen": "2026-08-26T13:57:40Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -264,7 +275,7 @@
       "latitude": 39.970534,
       "longitude": -86.138026,
       "first_seen": "2026-08-22T13:35:13Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -287,7 +298,7 @@
       "latitude": 39.969026,
       "longitude": -86.139336,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -321,7 +332,7 @@
       "latitude": 39.969456,
       "longitude": -86.139555,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -344,7 +355,7 @@
       "latitude": 39.930141,
       "longitude": -86.131569,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -383,7 +394,7 @@
       "latitude": 39.97447,
       "longitude": -86.198043,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -407,7 +418,7 @@
     {
       "id": "354-Hunters-Ln,-Apt-C,-Carmel,-IN-46032",
       "address": "354 Hunters Ln, Apt C, Carmel, IN 46032",
-      "price": 275000,
+      "price": 270000,
       "bedrooms": 2,
       "bathrooms": 2,
       "squareFootage": 1664,
@@ -417,13 +428,24 @@
       "latitude": 39.962978,
       "longitude": -86.120364,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
           "date": "2026-08-18T09:06:34Z",
           "event": "listed",
           "changes": []
+        },
+        {
+          "date": "2026-09-23T17:46:36Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 275000,
+              "to": 270000
+            }
+          ]
         }
       ]
     },
@@ -440,7 +462,7 @@
       "latitude": 39.963455,
       "longitude": -86.120195,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -491,7 +513,7 @@
       "latitude": 39.957058,
       "longitude": -86.11159,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -525,7 +547,7 @@
       "latitude": 39.969263,
       "longitude": -86.13954,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -559,7 +581,7 @@
       "latitude": 39.974119,
       "longitude": -86.199568,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -582,7 +604,7 @@
       "latitude": 39.962387,
       "longitude": -86.120226,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -655,7 +677,7 @@
       "latitude": 39.974334,
       "longitude": -86.19919,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -678,7 +700,7 @@
       "latitude": 39.962447,
       "longitude": -86.143022,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
@@ -712,7 +734,7 @@
       "latitude": 39.960993,
       "longitude": -86.14306,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-22T17:34:40Z",
+      "last_seen": "2026-09-23T17:46:36Z",
       "active": true,
       "history": [
         {
