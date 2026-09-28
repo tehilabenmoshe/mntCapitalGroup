@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-27T17:36:57Z",
+  "generated_at": "2026-09-28T20:03:36Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
   "count": 29,
-  "active_count": 25,
+  "active_count": 24,
   "listings": [
     {
       "id": "558-W-Hunters-Dr,-Apt-D,-Carmel,-IN-46032",
@@ -19,7 +19,7 @@
       "latitude": 39.962886,
       "longitude": -86.121201,
       "first_seen": "2026-09-27T17:36:57Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -42,7 +42,7 @@
       "latitude": 39.970839,
       "longitude": -86.16114,
       "first_seen": "2026-09-26T16:58:58Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -65,7 +65,7 @@
       "latitude": 39.963232,
       "longitude": -86.119241,
       "first_seen": "2026-09-26T16:58:58Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -88,7 +88,7 @@
       "latitude": 39.938916,
       "longitude": -86.142057,
       "first_seen": "2026-09-25T17:51:31Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -111,7 +111,7 @@
       "latitude": 39.963259,
       "longitude": -86.120582,
       "first_seen": "2026-09-18T16:59:27Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -145,7 +145,7 @@
       "latitude": 39.929562,
       "longitude": -86.134483,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -168,7 +168,7 @@
       "latitude": 39.976594,
       "longitude": -86.140213,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -191,7 +191,7 @@
       "latitude": 39.963457,
       "longitude": -86.119243,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -225,7 +225,7 @@
       "latitude": 39.975995,
       "longitude": -86.140672,
       "first_seen": "2026-09-05T15:52:21Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -248,7 +248,7 @@
       "latitude": 39.960868,
       "longitude": -86.142349,
       "first_seen": "2026-09-03T16:58:48Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -271,7 +271,7 @@
       "latitude": 39.974995,
       "longitude": -86.198092,
       "first_seen": "2026-09-01T17:15:06Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -333,7 +333,7 @@
       "latitude": 39.941196,
       "longitude": -86.142054,
       "first_seen": "2026-08-26T13:57:40Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -367,7 +367,7 @@
       "latitude": 39.970534,
       "longitude": -86.138026,
       "first_seen": "2026-08-22T13:35:13Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -390,7 +390,7 @@
       "latitude": 39.969026,
       "longitude": -86.139336,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -424,7 +424,7 @@
       "latitude": 39.969456,
       "longitude": -86.139555,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -447,7 +447,7 @@
       "latitude": 39.930141,
       "longitude": -86.131569,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -525,7 +525,7 @@
       "latitude": 39.962978,
       "longitude": -86.120364,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -559,7 +559,7 @@
       "latitude": 39.963455,
       "longitude": -86.120195,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -621,7 +621,7 @@
       "latitude": 39.957058,
       "longitude": -86.11159,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -655,7 +655,7 @@
       "latitude": 39.969263,
       "longitude": -86.13954,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -689,7 +689,7 @@
       "latitude": 39.974119,
       "longitude": -86.199568,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -713,7 +713,7 @@
       "longitude": -86.120226,
       "first_seen": "2026-08-18T09:06:34Z",
       "last_seen": "2026-09-27T17:36:57Z",
-      "active": true,
+      "active": false,
       "history": [
         {
           "date": "2026-08-18T09:06:34Z",
@@ -730,6 +730,11 @@
               "to": 189000
             }
           ]
+        },
+        {
+          "date": "2026-09-28T20:03:36Z",
+          "event": "removed",
+          "changes": []
         }
       ]
     },
@@ -785,7 +790,7 @@
       "latitude": 39.974334,
       "longitude": -86.19919,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -808,7 +813,7 @@
       "latitude": 39.962447,
       "longitude": -86.143022,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
@@ -842,7 +847,7 @@
       "latitude": 39.960993,
       "longitude": -86.14306,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-09-27T17:36:57Z",
+      "last_seen": "2026-09-28T20:03:36Z",
       "active": true,
       "history": [
         {
