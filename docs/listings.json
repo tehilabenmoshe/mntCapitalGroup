@@ -1,11 +1,34 @@
 {
-  "generated_at": "2026-11-02T22:14:33Z",
+  "generated_at": "2026-11-03T20:00:11Z",
   "city": "Carmel",
   "state": "IN",
   "max_price": 300000,
-  "count": 38,
-  "active_count": 27,
+  "count": 39,
+  "active_count": 28,
   "listings": [
+    {
+      "id": "12853-Tradd-St,-Apt-2B,-Carmel,-IN-46032",
+      "address": "12853 Tradd St, Apt 2B, Carmel, IN 46032",
+      "price": 179900,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "squareFootage": 706,
+      "propertyType": "Condo",
+      "listedDate": "2026-11-02T00:00:00.000Z",
+      "mlsNumber": "22132511",
+      "latitude": 39.973964,
+      "longitude": -86.19963,
+      "first_seen": "2026-11-03T20:00:11Z",
+      "last_seen": "2026-11-03T20:00:11Z",
+      "active": true,
+      "history": [
+        {
+          "date": "2026-11-03T20:00:11Z",
+          "event": "listed",
+          "changes": []
+        }
+      ]
+    },
     {
       "id": "12517-Timber-Creek-Dr,-Unit-9,-Carmel,-IN-46032",
       "address": "12517 Timber Creek Dr, Unit 9, Carmel, IN 46032",
@@ -19,7 +42,7 @@
       "latitude": 39.969068,
       "longitude": -86.139466,
       "first_seen": "2026-11-02T22:14:33Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -42,7 +65,7 @@
       "latitude": 39.972051,
       "longitude": -86.161677,
       "first_seen": "2026-10-30T18:29:31Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -55,7 +78,7 @@
     {
       "id": "1296-Shadow-Ridge-Rd,-Carmel,-IN-46280",
       "address": "1296 Shadow Ridge Rd, Carmel, IN 46280",
-      "price": 300000,
+      "price": 275000,
       "bedrooms": 2,
       "bathrooms": 2,
       "squareFootage": 1650,
@@ -65,13 +88,24 @@
       "latitude": 39.930502,
       "longitude": -86.132501,
       "first_seen": "2026-10-18T16:25:12Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
           "date": "2026-10-18T16:25:12Z",
           "event": "listed",
           "changes": []
+        },
+        {
+          "date": "2026-11-03T20:00:11Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 300000,
+              "to": 275000
+            }
+          ]
         }
       ]
     },
@@ -88,7 +122,7 @@
       "latitude": 39.934591,
       "longitude": -86.145359,
       "first_seen": "2026-10-18T16:25:12Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -111,7 +145,7 @@
       "latitude": 39.96238,
       "longitude": -86.120482,
       "first_seen": "2026-10-16T17:15:06Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -134,7 +168,7 @@
       "latitude": 39.974996,
       "longitude": -86.197952,
       "first_seen": "2026-10-09T18:42:58Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -157,7 +191,7 @@
       "latitude": 39.969566,
       "longitude": -86.138791,
       "first_seen": "2026-10-08T19:12:20Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -170,7 +204,7 @@
     {
       "id": "2121-Grenville-St,-Apt-3A,-Carmel,-IN-46032",
       "address": "2121 Grenville St, Apt 3A, Carmel, IN 46032",
-      "price": 225000,
+      "price": 210000,
       "bedrooms": 2,
       "bathrooms": 1.5,
       "squareFootage": 1126,
@@ -180,7 +214,7 @@
       "latitude": 39.974995,
       "longitude": -86.198126,
       "first_seen": "2026-10-06T18:50:50Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -196,6 +230,17 @@
               "field": "price",
               "from": 232000,
               "to": 225000
+            }
+          ]
+        },
+        {
+          "date": "2026-11-03T20:00:11Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 225000,
+              "to": 210000
             }
           ]
         }
@@ -253,7 +298,7 @@
       "latitude": 39.962886,
       "longitude": -86.121201,
       "first_seen": "2026-09-27T17:36:57Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -276,7 +321,7 @@
       "latitude": 39.970839,
       "longitude": -86.16114,
       "first_seen": "2026-09-26T16:58:58Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -310,7 +355,7 @@
       "latitude": 39.963232,
       "longitude": -86.119241,
       "first_seen": "2026-09-26T16:58:58Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -361,7 +406,7 @@
       "latitude": 39.963259,
       "longitude": -86.120582,
       "first_seen": "2026-09-18T16:59:27Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -417,7 +462,7 @@
       "latitude": 39.929562,
       "longitude": -86.134483,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -479,7 +524,7 @@
       "latitude": 39.963457,
       "longitude": -86.119243,
       "first_seen": "2026-09-11T16:57:46Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -513,7 +558,7 @@
       "latitude": 39.975995,
       "longitude": -86.140672,
       "first_seen": "2026-09-05T15:52:21Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -586,7 +631,7 @@
       "latitude": 39.974995,
       "longitude": -86.198092,
       "first_seen": "2026-09-01T17:15:06Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -658,7 +703,7 @@
       "latitude": 39.941196,
       "longitude": -86.142054,
       "first_seen": "2026-08-26T13:57:40Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -692,7 +737,7 @@
       "latitude": 39.970534,
       "longitude": -86.138026,
       "first_seen": "2026-08-22T13:35:13Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -715,7 +760,7 @@
       "latitude": 39.969026,
       "longitude": -86.139336,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -749,7 +794,7 @@
       "latitude": 39.969456,
       "longitude": -86.139555,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -788,7 +833,7 @@
       "latitude": 39.930141,
       "longitude": -86.131569,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -877,7 +922,7 @@
       "latitude": 39.962978,
       "longitude": -86.120364,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -911,7 +956,7 @@
       "latitude": 39.963455,
       "longitude": -86.120195,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -984,7 +1029,7 @@
       "latitude": 39.957058,
       "longitude": -86.11159,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -1068,7 +1113,7 @@
       "latitude": 39.974119,
       "longitude": -86.199568,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -1202,7 +1247,7 @@
       "latitude": 39.974334,
       "longitude": -86.19919,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -1298,7 +1343,7 @@
     {
       "id": "11635-Lenox-Ln,-Unit-101,-Carmel,-IN-46032",
       "address": "11635 Lenox Ln, Unit 101, Carmel, IN 46032",
-      "price": 214000,
+      "price": 200000,
       "bedrooms": 2,
       "bathrooms": 2,
       "squareFootage": 1072,
@@ -1308,7 +1353,7 @@
       "latitude": 39.960993,
       "longitude": -86.14306,
       "first_seen": "2026-08-18T09:06:34Z",
-      "last_seen": "2026-11-02T22:14:33Z",
+      "last_seen": "2026-11-03T20:00:11Z",
       "active": true,
       "history": [
         {
@@ -1334,6 +1379,17 @@
               "field": "price",
               "from": 217000,
               "to": 214000
+            }
+          ]
+        },
+        {
+          "date": "2026-11-03T20:00:11Z",
+          "event": "updated",
+          "changes": [
+            {
+              "field": "price",
+              "from": 214000,
+              "to": 200000
             }
           ]
         }
